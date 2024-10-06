@@ -1,0 +1,16 @@
+<h1>Products</h1>
+
+<products-price
+   *ngIf="isProductVisible"
+   [thePrice]="changePrice" 
+/>
+
+<button (click)="isProductVisible = !isProductVisible">
+    {{ isProductVisible ? 'Hidden': 'See' }}
+</button>
+<hr>
+
+<button (click)="decreasePrice()">-1 Price</button>
+<button (click)="restart()">Restart</button>
+<button (click)="increasePrice()">+1 Price</button>
+<hr>

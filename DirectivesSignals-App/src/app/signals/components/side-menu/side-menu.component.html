@@ -1,0 +1,13 @@
+<!-- <ul class="list-group">
+    Forma 1 - Tradicional ngFor
+    <li *ngFor="let item of menuItems" class="list-group-item" [routerLink]="item.route" routerLinkActive="active">
+        {{ item.title }}
+    </li>
+</ul> -->
+
+<ul class="list-group">
+    <!-- Forma 2 - Signals -->
+    <li *ngFor="let item of menuItems()" class="list-group-item" [routerLink]="item.route" routerLinkActive="active">
+        {{ item.title }}
+    </li> 
+</ul>

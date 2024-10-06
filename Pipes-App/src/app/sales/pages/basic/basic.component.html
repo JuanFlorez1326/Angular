@@ -1,0 +1,103 @@
+<div class="text-layout">
+    <h1>Basic Pipes</h1>
+    <h3>Uppercase | Lowecase | Titlecase</h3>
+    <p>Pipes included in Angular - Usually in the Common Module.</p>
+</div>
+
+<div class="grid">
+    <div class="col md:col-4 sm:col-9">
+        <p-card 
+            header="Uppercase"
+            [subheader]="nameLower | uppercase"
+        >
+            <p>Default name: {{ nameLower }}</p>
+            <p>With Pipe "uppercase": {{ nameLower | uppercase }}</p>
+        </p-card>
+    </div>
+
+    <div class="col md:col-4 sm:col-9">
+        <p-card 
+            header="Lowercase"
+            [subheader]="nameUpper | lowercase"
+        >
+            <p>Default name: {{ nameUpper }}</p>
+            <p>With Pipe "lowercase": {{ nameUpper | lowercase }}</p>
+        </p-card>
+    </div>
+
+    <div class="col md:col-4 sm:col-9">
+        <p-card 
+            header="Titlecase"
+            [subheader]="fullName | titlecase"
+        >
+            <p>Default name: {{ fullName }}</p>
+            <p>With Pipe "titlecase": {{ fullName | titlecase }}</p>
+        </p-card>
+    </div>
+</div>
+
+<div class="text-layout">
+    <h1>Date Pipe</h1>
+    <a href="https://angular.io/api/common/DatePipe" target="_blank">Angular - DatePipe</a>
+    <p>Pipe to show Dates.</p>
+</div>
+
+<div class="grid">
+    <div class="col md:col-6 sm:col-9">
+        <p-card>
+            <ol>
+                <li> Date </li>
+                <li> Date | date </li>
+                <li> Date | date: 'short' </li>
+                <li> Date | date: 'long' </li>
+                <li> Date | date: 'full' </li>
+                <li> Date | date: 'shortDate' </li>
+                <li> Date | date: 'mediumDate' </li>
+                <li> Date | date: 'longDate' </li>
+                <li> Date | date: 'fullDate' </li>
+                <li> Date | date: 'shortTime' </li>
+                <li> Date | date: 'mediumTime' </li>
+                <li> Date | date: 'longTime' </li>
+                <li> Date | date: 'fullTime' </li>
+                <li> Date | date: 'MMMM dd, YYYY' </li>
+            </ol>
+
+            <hr>
+            <ol>
+                <li> Date | date: 'long':'GMT-6' </li>
+                <li> Date | date: 'long':'GMT-4' </li>
+                <li> Date | date: 'long':'GMT-5':'fr' </li>
+            </ol>
+
+        </p-card>
+    </div>
+
+    <div class="col md:col-6 sm:col-9">
+        <p-card>
+            <ol>
+                <li>{{ date }}</li>
+                <li>{{ date | date }}</li>
+                <li>{{ date | date: 'short' }}</li>
+                <li>{{ date | date: 'long' }}</li>
+                <li>{{ date | date: 'full' }}</li>
+                <li>{{ date | date: 'shortDate' }}</li>
+                <li>{{ date | date: 'mediumDate' }}</li>
+                <li>{{ date | date: 'longDate' }}</li>
+                <li>{{ date | date: 'fullDate' }}</li>
+                <li>{{ date | date: 'shortTime' }}</li>
+                <li>{{ date | date: 'mediumTime' }}</li>
+                <li>{{ date | date: 'longTime' }}</li>
+                <li>{{ date | date: 'fullTime' }}</li>
+                <li>{{ date | date: 'MMMM dd, YYYY' }}</li>
+            </ol>
+
+            <hr>
+            <ol>
+                <li>{{ date | date: 'long':'GMT-6' }}</li>
+                <li>{{ date | date: 'long':'GMT-4' }}</li>
+                <li>{{ date | date: 'long':'GMT-5':'fr' }}</li>
+            </ol>
+            
+        </p-card>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+<div class="text-layout">
+    <h1>Custom Pipes</h1>
+    <h3>Pipes {{ 'cReAtEd' | UpperPipe: inUppercase }} by us.</h3>
+    <button 
+        (click)="toggleUppercase()" 
+        pButton pRipple 
+        type="button" 
+        label="Change" 
+        class="p-button-raised p-button-help p-button-text"
+    ></button>
+    <hr>
+</div>
+
+<p-toolbar>
+    <div class="p-toolbar-group-start"></div>
+
+    <div class="p-toolbar-group-end">
+
+        <button 
+            pButton 
+            icon="pi pi-sort"
+            label="By Name"
+            class="mr-1"
+            class="p-button-danger mr-1"
+            (click)="changeOrder('name')"
+        ></button>
+
+        <button 
+            pButton 
+            icon="pi pi-sort"
+            label="Values"
+            class="p-button-success mr-1"
+            (click)="changeOrder('flying')"
+        ></button>
+
+        <button 
+            pButton 
+            icon="pi pi-sort"
+            label="By Coolor"
+            class="p-button-help mr-1"
+            (click)="changeOrder('color')"
+        ></button>
+
+    </div>
+</p-toolbar>
+
+
+<hr>
+<h2>Form 1 - Basic Table - PrimeNG</h2>
+
+<div class="grid">
+    <div class="col mt-3">
+        <p-table [value]="heroes | OrderPipe: orderBy" [tableStyle]="{'min-width': '50rem'}">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Name</th>
+                    <th>Flying</th>
+                    <th>Color</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-heroe>
+                <tr>
+                    <td>{{ heroe.name }}</td>
+                    <td>{{ heroe.flying | FlyingPipe | titlecase }}</td>
+                    <td>{{ heroe.color }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+
+<hr>
+<h2>Form 2 - Table Sort - PrimeNG</h2>
+
+<div class="grid">
+    <div class="col mt-3">
+        <p-table [value]="heroes | slice:0" [tableStyle]="{'min-width': '50rem'}">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="name" style="width:20%">Name <p-sortIcon field="name"></p-sortIcon></th>
+                    <th pSortableColumn="flying" style="width:20%">Flying <p-sortIcon field="flying"></p-sortIcon></th>
+                    <th pSortableColumn="color" style="width:20%">Color <p-sortIcon field="color"></p-sortIcon></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-heroe>
+                <tr>
+                    <td>{{ heroe.name }}</td>
+                    <td>{{ heroe.flying | FlyingPipe | titlecase }}</td>
+                    <td>{{ heroe.color }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

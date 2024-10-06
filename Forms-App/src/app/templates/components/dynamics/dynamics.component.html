@@ -1,0 +1,88 @@
+<h2> Template: <small>Dynamics</small></h2>
+<hr>
+
+<form (ngSubmit)="save()" autocomplete="off" #formDynamicsTemplate="ngForm">
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label" >Name</label>
+        <div class="col-sm-9">
+
+            <input 
+                [ngModel]="user.name"
+                required
+                type="text" 
+                class="form-control" 
+                name="name"
+                placeholder="Username..."
+            >
+
+            <span 
+                class="form-text text-danger" 
+                *ngIf="
+                    formDynamicsTemplate.controls['name'].invalid &&
+                    formDynamicsTemplate.controls['name']?.touched
+                "
+            >
+                This field can not be blank
+            </span>
+
+        </div>
+    </div>
+
+
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label" >Add</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    [(ngModel)]="newGame"
+                    (keyup.enter)="addGame()"
+                    name="newGame"
+                    placeholder="Favorite game..."
+                >
+
+                <button type="button" class="btn btn-outline-primary" (click)="addGame()">
+                    Add
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label" >List Favorite Games</label>
+        <div class="col-sm-9">
+            <div class="input-group mb-1" *ngFor="let game of user.games; let i = index" >
+                <input 
+                    class="form-control"
+                    type="text"
+                    [(ngModel)]="game.nameGame"
+                    name="favorite_{{i}}"
+                    required=""
+                >
+                <button type="button" class="btn btn-outline-danger" (click)="delete(i)">
+                    Remove
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <button 
+                class="btn btn-primary float-end" 
+                type="button" 
+                (click)="save()" 
+                [disabled]="formDynamicsTemplate.invalid"
+            > Save </button>
+        </div>
+    </div>
+
+</form>
+
+
+<span>User Data</span>
+<pre>{{ user | json }}</pre>

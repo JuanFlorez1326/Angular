@@ -1,0 +1,27 @@
+<h2>Country</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <app-input-country 
+            (onEnter)="search( $event )"
+            (onDebounce)="suggestions( $event )" 
+            [plahol]="txtPlaceholder"
+        ></app-input-country>
+    </div>
+</div>
+
+<hr>
+
+<div 
+    *ngIf="error"
+    class="alert alert-danger"
+>
+    Nothing was found for the term " {{ term }} ". 
+</div>
+
+<div *ngIf="countries.length > 0" class="row">
+    <div class="col">
+        <app-country-table [dataCountry]="countries" ></app-country-table>
+    </div>
+</div>
